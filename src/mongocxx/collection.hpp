@@ -477,6 +477,16 @@ class MONGOCXX_API collection {
     stdx::string_view name() const noexcept;
 
     ///
+    /// Rename this collection.
+    ///
+    /// @param new_name The new name to assign to the collection.
+    /// @param overwrite_old Whether to overwrite any
+    ///   existing collections called new_name. Default: false
+    /// @throws exception::operation if the operation fails.
+    void name(stdx::string_view new_name, bool overwrite_old = false);
+
+
+    ///
     /// Sets the read_preference for this collection. Changes will not have any effect on existing
     /// cursors or other read operations which use the read preference.
     ///
