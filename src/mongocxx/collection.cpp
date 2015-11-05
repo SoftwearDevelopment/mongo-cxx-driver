@@ -16,12 +16,7 @@
 
 #include <cstdint>
 #include <utility>
-#include <tuple>
-
-#include <bsoncxx/builder/stream/document.hpp>
-#include <bsoncxx/builder/stream/helpers.hpp>
-#include <bsoncxx/stdx/make_unique.hpp>
-#include <bsoncxx/stdx/optional.hpp>
+#include <tuple> #include <bsoncxx/builder/stream/document.hpp> #include <bsoncxx/builder/stream/helpers.hpp> #include <bsoncxx/stdx/make_unique.hpp> #include <bsoncxx/stdx/optional.hpp>
 #include <bsoncxx/types.hpp>
 
 #include <mongocxx/client.hpp>
@@ -461,7 +456,7 @@ bsoncxx::document::value collection::create_index(bsoncxx::document::view keys,
 cursor collection::distinct(stdx::string_view field_name, bsoncxx::document::view query,
                             const options::distinct& options) {
     auto command = bsoncxx::builder::stream::document{}
-                   << "distinct" << name() << "key" << field_name << "query"
+                   << "distinct" << "foobar" << "key" << field_name << "query"
                    << bsoncxx::types::b_document{query} << bsoncxx::builder::stream::finalize;
     scoped_bson_t command_bson{command};
 
